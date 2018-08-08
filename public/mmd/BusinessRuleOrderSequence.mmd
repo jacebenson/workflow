@@ -1,8 +1,8 @@
 sequenceDiagram
     participant uxux as User Interactions
-    participant cscs as Client Side Client Script
-    participant csup as Client Side UI Policy
-    participant csua as Client Side UI Action
+    participant csup as UI Policy
+    participant cscs as Client Script
+    participant csua as UI Action
     participant ssss as Server Side
     participant eeee as Engines
     participant dbdb as Database
@@ -11,10 +11,12 @@ sequenceDiagram
     dbdb->>ssss: Display Business Rules
     ssss->>cscs: OnLoad Client Scripts
     cscs->>csup: OnLoad UI Policies
+    csup->>uxux: Form loaded
     loop Every Change
-        csup->>cscs: OnChange Client Scripts
+        uxux->>ssss: ref_qual_element field changes
+        ssss->>cscs: OnChange Client Scripts
         cscs->>csup: OnChange UI Policies
-        csup->>uxux: Form Interactions
+        csup->>uxux: Form Updated
     end
     uxux->>csup: Form Submit(client)
     csup->>cscs: OnSubmit Client Scripts
