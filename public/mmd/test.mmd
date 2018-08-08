@@ -1,0 +1,9 @@
+graph LR
+  Start[Start] --> Approval[Manager Approval]
+  Approval--Approved--> Task[Fulfiller Task]
+  Task-->End
+  Approval--Rejected--> End
+  subgraph Fulfiller Task
+    FTAssigned[Task Assigned to Group]-->FTEmailGroup[Email To Group]
+    FTEmailGroup-->TaskComplete[Task Complete]
+  end

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mergammer</title>
+  <!-- Insert this line above script imports  -->
+  <script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+  </script>
+
+  <!-- normal script imports etc  -->
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/popper.js"></script> <!-- Needed for bootstrap -->
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/mermaid.js"></script>
+  <script src="./js/custom.js"></script>
+  <!-- Insert this line after script imports -->
+  <script>
+    if (window.module) module = window.module;
+  </script>
+  <script>
+    mermaid.initialize({ startOnLoad: false });
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/mermaid.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row centering">
+      <div class="col-5" id="left">
+          <form class="form-horizontal">
+              <fieldset>
+              
+              <!-- Form Name -->
+              <legend>Workflows</legend>
+              
+              </fieldset>
+            <div class="form-group">
+              <label>Graph Type</label>
+              <select id="type" class="form-control">
+                      <option SELECTED value="">Choose one</option>
+                      <option value="mmd/graphLR.mmd">Flowchart Left to Right</option>
+                      <option value="mmd/graphTD.mmd">Flowchart Tob to Bottom</option>
+                      <option value="mmd/sequenceDiagram.mmd">Sequence Diagram</option>
+                      <option value="mmd/gantt.mmd">Gant Diagram</option>
+                      <option value="mmd/test.mmd">Test</option>
+                      <option value="mmd/BusinessRuleOrderSequence.mmd">Business Rule Order Sequence</option>
+                      <option value="mmd/BusinessRuleOrderTD.mmd">Business Rule Order TD</option>
+                      <!--<option value="classDiagram">Class Diagram</option>--><!--Errors after selecting twice-->
+                      <!--<option value="gitGraph :">Git Graph</option>--><!--Doesn't render-->
+                  </select>
+              <label for="mermaid-syntax">Mermaid Syntax</label>
+              <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax" placeholder="Example input"></textarea>
+              <!--<button id="saveFile" onclick="saveFile();">Save</button><br />
+              <button id="close">Close</button><br />-->
+            </div>
+          </form>
+      </div>
+      
+
+      <div class="col-6" id="right">
+        <div class="row align-middle">
+          <div class="col-1">
+              <button id="resize" type="button" class="btn btn-primary btn-sm"><</button>
+          </div>
+          <div class="col-11">
+              <div id="chart"></div>
+              <div id="info" style="font-family:monospace;"></div>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

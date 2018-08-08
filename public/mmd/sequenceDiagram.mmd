@@ -1,0 +1,15 @@
+sequenceDiagram
+  participant Employee
+  participant Manager
+  participant Servicenow
+  participant Fulfiller
+  Employee->>Servicenow: Submits Request
+  Note right of Employee: Email Sent "Item Requested"
+  Servicenow->>Manager: Approve Request
+  Note right of Manager: Email Sent "Approval Requested"
+  Manager->>Servicenow: Approved
+  Servicenow->>Fulfiller: Tasks to Fulfill
+  Note right of Servicenow: Email Sent "Task Assigned"
+  Fulfiller->>Servicenow: Tasks Complete
+  Servicenow->>Employee: Request Fulfilled
+  Note right of Employee: Email Sent "Request complete"
