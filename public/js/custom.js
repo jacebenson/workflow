@@ -12,6 +12,11 @@ $(document).ready(function () {
       }]
     ]
   };
+  GLOBAL.renderLive = function () {
+    if ($('#live').val() === 'yes') {
+      GLOBAL.render();
+    }
+  };
   GLOBAL.render = function () {
     $('#chart').html('');
     GLOBAL.mermaidSyntax = $('#mermaid-syntax').val();
@@ -31,15 +36,20 @@ $(document).ready(function () {
 
   // onkeyup rerender
   $('#mermaid-syntax').keyup(function () {
-    GLOBAL.render();
+    GLOBAL.renderLive();
   });
 
   $('#type').change(function () {
     $.get($('#type').val(), function (data) {
       $('#mermaid-syntax').val(data + '\n');
-      GLOBAL.render();
+      GLOBAL.renderLive();
     });
     // $('#mermaid-syntax').val(example[$('#type').val()]);
+  });
+
+  // force update
+  $('#update').click(function () {
+    GLOBAL.render();
   });
 
   // resize

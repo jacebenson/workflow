@@ -23,51 +23,70 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./css/mermaid.css">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
 </head>
 
 <body>
 
   <div class="container-fluid">
-    <div class="row centering">
+      <h1>Workflows</h1>
+    <div class="row">
       <div class="col-6" id="left">
           <form class="form-horizontal">
-              <fieldset>
-              
-              <!-- Form Name -->
-              <legend>Workflows</legend>
-              
-              </fieldset>
             <div class="form-group">
-              <label>Graph Type</label>
-              <select id="type" class="form-control">
-                      <option SELECTED value="">Choose one</option>
-                      <option value="mmd/graphLR.mmd">Flowchart Left to Right</option>
-                      <option value="mmd/graphTD.mmd">Flowchart Tob to Bottom</option>
-                      <option value="mmd/sequenceDiagram.mmd">Sequence Diagram</option>
-                      <option value="mmd/gantt.mmd">Gant Diagram</option>
-                      <option value="mmd/test.mmd">Test</option>
-                      <option value="mmd/BusinessRuleOrderSequence.mmd">Business Rule Order Sequence</option>
-                      <option value="mmd/BusinessRuleOrderTD.mmd">Business Rule Order TD</option>
-                      <!--<option value="classDiagram">Class Diagram</option>--><!--Errors after selecting twice-->
-                      <!--<option value="gitGraph :">Git Graph</option>--><!--Doesn't render-->
+              <div class="row">
+                <div class="col-6">
+                  <label>Graph Type</label>
+                  <select id="type" class="form-control">
+                    <option SELECTED value="">Choose one</option>
+                    <option value="mmd/graphLR.mmd">Flowchart Left to Right</option>
+                    <option value="mmd/graphTD.mmd">Flowchart Tob to Bottom</option>
+                    <option value="mmd/sequenceDiagram.mmd">Sequence Diagram</option>
+                    <option value="mmd/gantt.mmd">Gant Diagram</option>
+                    <option value="mmd/test.mmd">Test</option>
+                    <option value="mmd/BusinessRuleOrderSequence.mmd">Business Rule Order Sequence</option>
+                    <option value="mmd/BusinessRuleOrderTD.mmd">Business Rule Order TD</option>
                   </select>
+                </div>
+                <div class="col-3">
+                    <label>Live Updating</label>
+                    <select id="live" class="form-control">
+                      <option SELECTED value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="update">&nbsp;</label>
+                        <div class="col-md-4">
+                          <a href="#" class="btn btn-info" id="update">Force Update</a>
+                        </div>
+                      </div>
+                </div>
               <label for="mermaid-syntax">Mermaid Syntax</label>
               <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax" placeholder="Example input"></textarea>
-              <!--<button id="saveFile" onclick="saveFile();">Save</button><br />
-              <button id="close">Close</button><br />-->
+            </div>
             </div>
           </form>
       </div>
       
 
       <div class="col-6" id="right">
-        <div class="row align-middle">
-          <div class="col-1">
-              <button id="resize" type="button" class="btn btn-primary btn-sm"><</button>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-11"></div>
+            <div class="col-1">
+              <button id="resize" type="button" class="btn btn-primary btn-lg">
+                  <i class="fas fa-expand-arrows-alt"></i>
+              </button>
+            </div>
           </div>
-          <div class="col-11">
-              <div id="chart"></div>
-              <div id="info" style="font-family:monospace;"></div>    
+          <div class="row">
+              <div class="col-12">
+                  <div id="chart"></div>
+                  <div id="info" style="font-family:monospace;"></div>    
+              </div>    
           </div>
         </div>
       </div>
