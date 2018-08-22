@@ -29,8 +29,17 @@
 
 <body>
 
-  <div class="container-fluid">
-      <h1>Workflows</h1>
+  <div class="container-fluid pt-2">
+    <div class="row">
+      <div class="col-11">
+        <h1>Workflows</h1>
+      </div>
+      <div class="col-1">
+        <button id="resize" type="button" class="btn btn-primary btn-lg">
+            <i class="fas fa-expand-arrows-alt"></i>
+        </button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-6" id="left">
           <form class="form-horizontal">
@@ -78,18 +87,8 @@
             </div>
           </form>
       </div>
-      
-
       <div class="col-6" id="right">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-11"></div>
-            <div class="col-1">
-              <button id="resize" type="button" class="btn btn-primary btn-lg">
-                  <i class="fas fa-expand-arrows-alt"></i>
-              </button>
-            </div>
-          </div>
           <div class="row">
               <div class="col-12">
                   <div id="chart"></div>
