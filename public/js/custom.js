@@ -40,6 +40,9 @@ $(document).ready(function () {
   });
 
   $('#type').change(function () {
+    var flow = $('#type').val().split('/')[1].split('.mmd')[0];
+    console.log(flow);
+    window.history.pushState('page2', 'Title', GLOBAL.replaceQueryParam('flow', flow, window.location.search));
     $.get($('#type').val(), function (data) {
       $('#mermaid-syntax').val(data + '\n');
       GLOBAL.renderLive();
@@ -59,4 +62,30 @@ $(document).ready(function () {
     $('#right').toggleClass('col-6');
     $('#right').toggleClass('col-12');
   });
+  GLOBAL.getUrlParameter = function getUrlParameter (sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1));
+    var sURLVariables = sPageURL.split('&');
+    var sParameterName;
+
+    for (var i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : sParameterName[1];
+      }
+    }
+  };
+  GLOBAL.replaceQueryParam = function (param, newval, search) {
+    var regex = new RegExp('([?;&])' + param + '[^&;]*[;&]?');
+    var query = search.replace(regex, '$1').replace(/&$/, '');
+
+    return (query.length > 2 ? query + '&' : '?') + (newval ? param + '=' + newval : '');
+  };
+  if (GLOBAL.getUrlParameter('flow')) {
+    $('#type').val('mmd/' + GLOBAL.getUrlParameter('flow') + '.mmd');
+    $.get($('#type').val(), function (data) {
+      $('#mermaid-syntax').val(data + '\n');
+      GLOBAL.renderLive();
+    });
+  }
 });

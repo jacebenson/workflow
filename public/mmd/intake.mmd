@@ -1,0 +1,22 @@
+graph TD
+  NEW(New)
+  A+D(Analysis + Design)
+  BAC(Backlog)
+  DEV(Development + Testing)  
+  REQ(Approval Requested)
+  PRO(Production Change)
+  DEP(Deploy)
+  COM(Closed Complete)
+  CIN(Closed Incomplete)
+
+  NEW--Removed-->CIN
+  NEW--Requirements Clear: No-->A+D
+  NEW--Requirements Clear: Yes-->BAC
+  A+D--Removed-->CIN
+  A+D-->BAC
+  BAC-->DEV
+  DEV--Work done-->REQ
+  REQ--Approved-->PRO
+  REQ--Rejected-->DEV
+  PRO--Moved to other environments-->DEP
+  DEP--Promoted-->COM
