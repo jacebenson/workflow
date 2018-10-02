@@ -1,13 +1,21 @@
-graph TD
-  NEW(New)
-  A+D(Analysis + Design)
-  BAC(Backlog)
-  DEV(Development + Testing)  
-  REQ(Approval Requested)
-  PRO(Production Change)
-  DEP(Deploy)
-  COM(Closed Complete)
-  CIN(Closed Incomplete)
+graph TB
+  subgraph New
+    NEW(State: New)
+    A+D(State: Analysis + Design)
+  end
+  subgraph Backlog
+    BAC(State: Backlog)
+  end
+  subgraph In Progress
+    DEV(State: Development + Testing)  
+    REQ(Approval: Requested)
+    PRO(State: Production Change)
+    DEP(State: Deploy)
+  end
+  subgraph Closed
+    COM(State: Closed Complete)
+  end
+  CIN(State: Closed Incomplete)
 
   NEW--Removed-->CIN
   NEW--Requirements Clear: No-->A+D
@@ -20,3 +28,4 @@ graph TD
   REQ--Rejected-->DEV
   PRO--Moved to other environments-->DEP
   DEP--Promoted-->COM
+
