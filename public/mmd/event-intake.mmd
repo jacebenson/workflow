@@ -1,0 +1,14 @@
+graph LR
+  OS(Outside System)
+  SN(Servicenow)
+  SE(Event)
+  SA(<center>Alert<br/>Depending on Monitor, CI, or states</center>)
+  SR(Record)
+  E0(End)
+
+  OS--Sends in event-->SN
+  SN-->SE
+  SE-->SA
+  SA--Suppressed-->E0
+  SA--Not Suppressed-->SR
+  SR-->E0
