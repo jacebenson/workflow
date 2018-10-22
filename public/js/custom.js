@@ -85,7 +85,7 @@ $(document).ready(function () {
     $('#type').val('mmd/' + GLOBAL.getUrlParameter('flow') + '.mmd');
     $.get($('#type').val(), function (data) {
       $('#mermaid-syntax').val(data + '\n');
-      GLOBAL.renderLive();
+      GLOBAL.render();
     });
   }
 });
