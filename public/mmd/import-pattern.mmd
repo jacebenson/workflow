@@ -1,14 +1,13 @@
 graph TD
   S0(Start Scheduled Job)
   R1(Run Script Include<br/> to invoke REST calls<br/>to get records)
-  R2(Run Script at new pagination)
   I1(Build Import Set and Import Rows)
   T1(Transform Data to Target Table)
   E0(End)
   
   S0-->R1
-  R1--If Results-->R2
-  R2-->R1
-  R1--No Results-->I1
+  R1--Get All Results-->R1
+  R1--No More Results-->I1
   I1-->T1
   T1-->E0
+
