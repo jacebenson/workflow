@@ -45,7 +45,7 @@ $(document).ready(function () {
     window.history.pushState('page2', 'Title', GLOBAL.replaceQueryParam('flow', flow, window.location.search));
     $.get($('#type').val(), function (data) {
       $('#mermaid-syntax').val(data + '\n');
-      GLOBAL.renderLive();
+      GLOBAL.render();
     });
     // $('#mermaid-syntax').val(example[$('#type').val()]);
   });
