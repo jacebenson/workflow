@@ -1,0 +1,38 @@
+graph TB
+  subgraph New
+    NEW(State: New)
+    A+D(State: Analysis + Design)
+  end
+  subgraph Backlog
+    BAC(State: Backlog)
+  end
+  subgraph In Progress
+    DEV(State: Development + Testing)  
+    REQ(Approval: Requested)
+    SPE(Copy Story)
+    MVS(Move Original<br/>to Backlog or<br/>or next sprint)
+  end
+  subgraph Deploy
+    PRO(State: Production Change)
+    DEP(State: Deploy)
+  end
+  subgraph Closed
+    COM(State: Closed Complete)
+    CIN(State: Closed Incomplete)
+  end
+
+  NEW--Removed-->CIN
+  NEW--Requirements Clear: No-->A+D
+  NEW--Requirements Clear: Yes-->BAC
+  A+D--Removed-->CIN
+  A+D-->BAC
+  BAC-->DEV
+  DEV--Sprint Ended-->SPE
+  DEV--Work done-->REQ
+  REQ--Sprint Ended-->SPE
+  SPE-->MVS
+  MVS--Close Copy-->CIN
+  REQ--Approved-->PRO
+  REQ--Rejected-->DEV
+  PRO--Moved to other environments-->DEP
+  DEP--Promoted-->COM
