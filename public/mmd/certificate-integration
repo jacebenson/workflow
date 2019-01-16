@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant ui as User Interactions
+    participant sn as Servicenow
+    participant ms as MidServer
+    participant co as Certificate Authority
+    ui->>sn: User Requests Cert
+    sn->>ms: Creates CSR & Key
+    ms->>co: Enroll Cert
+    co->>ms: Returns Order #
+    ms->>co: Download Cert
+    ms->>ms: Generate PFX
+    ms->>ms: Generate JKS
+    ms->>ms: Zip CRT, Intermediate, Root, PFX, and JKS
+    ms->>sn: Send Zip to SN
+    sn->>ui: Notify user of zip file
