@@ -1,0 +1,7 @@
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect domain aliases to primary domain
+https://workflow.jacebenson.com/* https://workflow.jace.pro/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://affectionate-pasteur-064f0e.netlify.com/* https://workflow.jace.pro/:splat 301!
