@@ -2,26 +2,26 @@ graph TD
   
   InitSN[Initiated by Servicenow]
   InitOut[Initiated by Outside System]
+
+  AppExposesAPIs{Does the App<br/> expose APIs}
   AppRunsSupportedDB{Does the app run<br/> a supported DB?}
   AppExportToFile{Can the App<br/> export to a<br/> file?}
   AppWSCalls{Can the App<br/> make Web<br/> Service calls?}
   AppEmail{Can the App<br/> Email out?}
   AppODBCDataSource{Can the App<br/> connect to a<br/> ODBC Data<br/> Source?}
-
+  
   UseDataSource[Use a Data Source]
   UseJDBCDataSource[Use JDBC Data Source]
   UseOutboundWS[Use Outbound Webservices]
   UseInboundActions[Use Inbound Actions]
   UseStandardSNWS[Use Standard Servicenow APIs]
   UseOBDCConnector[Use ODBC Connector]
-  AppExposesAPIs[Does the App expose APIs]
   No1[No we cannot integrate]
   No2[No we cannot integrate]
 
 
-
-  InitSN            -- Pulling Data -->AppRunsSupportedDB
   InitSN            -- Creating Data-->AppExposesAPIs
+  InitSN            -- Pulling Data -->AppRunsSupportedDB
   AppRunsSupportedDB-- No           -->AppExportToFile
   AppRunsSupportedDB-- Yes          -->UseJDBCDataSource
   AppExportToFile   -- No           -->AppExposesAPIs
@@ -30,8 +30,8 @@ graph TD
   AppExposesAPIs    -- Yes          -->UseOutboundWS
 
 
-  InitOut           -- Pulling Data -->AppWSCalls
   InitOut           -- Creating Data-->AppEmail
+  InitOut           -- Pulling Data -->AppWSCalls
   AppEmail          -- No           -->AppWSCalls
   AppEmail          -- Yes          -->UseInboundActions
   AppWSCalls        -- No           -->AppODBCDataSource
