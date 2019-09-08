@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,10 +10,11 @@
   </script>
 
   <!-- normal script imports etc  -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script src="./js/mermaid.js"></script>
-  <script src="./js/custom.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./js/mermaid.js"></script>
+  <script type="text/javascript" src="./js/custom.js"></script>
+  <script type="text/javascript" src="./js/script.js"></script>
   <!-- Insert this line after script imports -->
   <script>
     mermaid.initialize({ startOnLoad: false });
@@ -21,90 +22,109 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="./css/mermaid.css">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
-  <link rel="canonical" href="https://workflow.jace.pro"></link>
+  <!-- 4.3.1 Bootstrap -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet" />
+  <!-- font awesome 5.2.0 -->
+  <link rel="stylesheet" href="./css/solid.css" />
+  <link rel="stylesheet" href="./css/fontawesome.css" />
+
+  <link rel="canonical" href="https://workflow.jace.pro">
+  </link>
+
+  <link rel="shortcut icon" href="./img/favicon.ico" />
+  <meta name="Description" content="Workflow Diagrammer">
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+  <meta name="theme-color" content="#fff">
+
 </head>
 
 <body>
-
+  <header></header>
   <div class="container-fluid pt-2">
-    <div class="row">
-      <div class="col-11">
-        <h1>Workflows</h1>
-      </div>
-      <div class="col-1">
-        <button id="resize" type="button" class="btn btn-primary btn-lg">
+    <nav>
+      <div class="row">
+        <div class="col-11">
+          <h1>Workflows</h1>
+        </div>
+        <div class="col-1">
+          <button id="resize" type="button" class="btn btn-primary btn-lg">
             <i class="fas fa-expand-arrows-alt"></i>
-        </button>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6" id="left">
+    </nav>
+    <main>
+      <div class="row">
+        <div class="col-6" id="left">
           <form class="form-horizontal">
             <div class="form-group">
               <div class="row">
                 <div class="col-6">
                   <label>Graph Type</label>
                   <select id="type" class="form-control">
-                    <option SELECTED value="">                          Choose one</option>
-                    <option value="mmd/graphLR.mmd">                    Flowchart Left to Right</option>
-                    <option value="mmd/graphTD.mmd">                    Flowchart Tob to Bottom</option>
-                    <option value="mmd/sequenceDiagram.mmd">            Sequence Diagram</option>
-                    <option value="mmd/gantt.mmd">                      Gant Diagram</option>
-                    <option value="mmd/if-branch-pattern.mmd">          If Branch Pattern</option>
-                    <option value="mmd/integrate.mmd">                  Integrate Decision Tree</option>
-                    <option value="mmd/BusinessRuleOrderSequence.mmd">  Business Rule Order Sequence</option>
-                    <option value="mmd/intake.mmd">                     Intake</option>
-                    <option value="mmd/intakev2.mmd">                   Intake V2</option>
-                    <option value="mmd/event-intake.mmd">               Event Intake</option>
-                    <option value="mmd/import-pattern.mmd">             Import Pattern</option>
-                    <option value="mmd/certificate-integration.mmd">    Certificate Integration</option>
-                    <option value="mmd/transform-map-order.mmd">        Transform Map Order</option>
-                    <option value="mmd/0-approval-1-task-serial.mmd">   WF 1 Task</option>
-                    <option value="mmd/0-approval-2-task-serial.mmd">   WF 2 Task (serial)</option>
+                    <option SELECTED value=""> Choose one</option>
+                    <option value="mmd/graphLR.mmd"> Flowchart Left to Right</option>
+                    <option value="mmd/graphTD.mmd"> Flowchart Tob to Bottom</option>
+                    <option value="mmd/sequenceDiagram.mmd"> Sequence Diagram</option>
+                    <option value="mmd/gantt.mmd"> Gant Diagram</option>
+                    <option value="mmd/if-branch-pattern.mmd"> If Branch Pattern</option>
+                    <option value="mmd/integrate.mmd"> Integrate Decision Tree</option>
+                    <option value="mmd/BusinessRuleOrderSequence.mmd"> Business Rule Order Sequence</option>
+                    <option value="mmd/intake.mmd"> Intake</option>
+                    <option value="mmd/intakev2.mmd"> Intake V2</option>
+                    <option value="mmd/event-intake.mmd"> Event Intake</option>
+                    <option value="mmd/import-pattern.mmd"> Import Pattern</option>
+                    <option value="mmd/certificate-integration.mmd"> Certificate Integration</option>
+                    <option value="mmd/transform-map-order.mmd"> Transform Map Order</option>
+                    <option value="mmd/0-approval-1-task-serial.mmd"> WF 1 Task</option>
+                    <option value="mmd/0-approval-2-task-serial.mmd"> WF 2 Task (serial)</option>
                     <option value="mmd/0-approval-2-task-parallel.mmd"> WF 2 Task (parallel)</option>
-                    <option value="mmd/1-approval-1-task-serial.mmd">   WF 1 Approval 1 Task</option>
-                    <option value="mmd/1-approval-2-task-serial.mmd">   WF 1 Approval 2 Task (serial)</option>
+                    <option value="mmd/1-approval-1-task-serial.mmd"> WF 1 Approval 1 Task</option>
+                    <option value="mmd/1-approval-2-task-serial.mmd"> WF 1 Approval 2 Task (serial)</option>
                     <option value="mmd/1-approval-2-task-parallel.mmd"> WF 1 Approval 2 Task (parallel)</option>
-                    <option value="mmd/2-approval-1-task-serial.mmd">   WF 2 Approval 1 Task</option>
-                    <option value="mmd/2-approval-2-task-serial.mmd">   WF 2 Approval 2 Task (serial)</option>
+                    <option value="mmd/2-approval-1-task-serial.mmd"> WF 2 Approval 1 Task</option>
+                    <option value="mmd/2-approval-2-task-serial.mmd"> WF 2 Approval 2 Task (serial)</option>
                     <option value="mmd/2-approval-2-task-parallel.mmd"> WF 2 Approval 2 Task (parallel)</option>
                   </select>
                 </div>
                 <div class="col-3">
-                    <label>Live Updating</label>
-                    <select id="live" class="form-control">
-                      <option SELECTED value="no">No</option>
-                      <option          value="yes">Yes</option>
-                    </select>
+                  <label>Live Updating</label>
+                  <select id="live" class="form-control">
+                    <option SELECTED value="no">No</option>
+                    <option value="yes">Yes</option>
+                  </select>
                 </div>
                 <div class="col-3">
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="update">&nbsp;</label>
-                        <div class="col-md-4">
-                          <a href="#" class="btn btn-info" id="update">Force Update</a>
-                        </div>
-                      </div>
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="update">&nbsp;</label>
+                    <div class="col-md-4">
+                      <a href="#" class="btn btn-info" id="update">Force Update</a>
+                    </div>
+                  </div>
                 </div>
-              <label for="mermaid-syntax">Mermaid Syntax</label>
-              <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax" placeholder="Example input"></textarea>
-            </div>
+                <label for="mermaid-syntax">Mermaid Syntax</label>
+                <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax"
+                  placeholder="Example input"></textarea>
+              </div>
             </div>
           </form>
-      </div>
-      <div class="col-6" id="right">
-        <div class="container-fluid">
-          <div class="row">
+        </div>
+        <div class="col-6" id="right">
+          <div class="container-fluid">
+            <div class="row">
               <div class="col-12">
-                  <div id="chart"></div>
-                  <div id="info" style="font-family:monospace;"></div>    
-              </div>    
+                <div id="chart"></div>
+                <div id="info" style="font-family:monospace;"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </div>
+  <footer></footer>
 </body>
+
 </html>
