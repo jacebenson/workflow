@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="./css/mermaid.css">
   <!-- 4.3.1 Bootstrap -->
   <link href="./css/bootstrap.min.css" rel="stylesheet" />
-  
+
   <link rel="canonical" href="https://workflow.jace.pro">
   </link>
 
@@ -42,73 +42,78 @@
   <div class="container-fluid pt-2">
     <nav>
       <div class="row">
-        <div class="col-10">
+        <div class="col-8">
           <h1>Workflows</h1>
         </div>
-        <div class="col-2">
-          <button id="resize" type="button" class="btn btn-primary btn-lg">
+        <div class="col-4">
+          <button id="resize" type="button" class="btn btn-primary btn">
             Resize
           </button>
+          <a href="#" class="btn btn-info" id="open-issue">Open Github issue with syntax</a>
+                    
         </div>
       </div>
     </nav>
     <main>
-      <div class="row">
-        <div class="col-6" id="left">
-          <form class="form-horizontal">
-            <div class="form-group">
-              <div class="row">
-                <div class="col-6">
-                  <label for="type">Graph Type</label>
-                  <select id="type" class="form-control">
-                    <option SELECTED value=""> Choose one</option>
-                    <option value="mmd/graphLR.mmd"> Flowchart Left to Right</option>
-                    <option value="mmd/graphTD.mmd"> Flowchart Tob to Bottom</option>
-                    <option value="mmd/sequenceDiagram.mmd"> Sequence Diagram</option>
-                    <option value="mmd/gantt.mmd"> Gant Diagram</option>
-                    <option value="mmd/if-branch-pattern.mmd"> If Branch Pattern</option>
-                    <option value="mmd/integrate.mmd"> Integrate Decision Tree</option>
-                    <option value="mmd/BusinessRuleOrderSequence.mmd"> Business Rule Order Sequence</option>
-                    <option value="mmd/intake.mmd"> Intake</option>
-                    <option value="mmd/intakev2.mmd"> Intake V2</option>
-                    <option value="mmd/event-intake.mmd"> Event Intake</option>
-                    <option value="mmd/import-pattern.mmd"> Import Pattern</option>
-                    <option value="mmd/certificate-integration.mmd"> Certificate Integration</option>
-                    <option value="mmd/transform-map-order.mmd"> Transform Map Order</option>
-                    <option value="mmd/0-approval-1-task-serial.mmd"> WF 1 Task</option>
-                    <option value="mmd/0-approval-2-task-serial.mmd"> WF 2 Task (serial)</option>
-                    <option value="mmd/0-approval-2-task-parallel.mmd"> WF 2 Task (parallel)</option>
-                    <option value="mmd/1-approval-1-task-serial.mmd"> WF 1 Approval 1 Task</option>
-                    <option value="mmd/1-approval-2-task-serial.mmd"> WF 1 Approval 2 Task (serial)</option>
-                    <option value="mmd/1-approval-2-task-parallel.mmd"> WF 1 Approval 2 Task (parallel)</option>
-                    <option value="mmd/2-approval-1-task-serial.mmd"> WF 2 Approval 1 Task</option>
-                    <option value="mmd/2-approval-2-task-serial.mmd"> WF 2 Approval 2 Task (serial)</option>
-                    <option value="mmd/2-approval-2-task-parallel.mmd"> WF 2 Approval 2 Task (parallel)</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label for="live">Live Updating</label>
-                  <select id="live" class="form-control">
-                    <option SELECTED value="no">No</option>
-                    <option value="yes">Yes</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="update">&nbsp;</label>
-                    <div class="col-md-4">
-                      <a href="#" class="btn btn-info" id="update">Update</a>
+      <div class="row col-10 offset-1">
+          <div class="col-6" id="left">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="type">Graph Type</label>
+                    <select id="type" class="form-control">
+                      <option SELECTED value=""> Choose one</option>
+                      <option value="mmd/graphLR.mmd"> Flowchart Left to Right</option>
+                      <option value="mmd/graphTD.mmd"> Flowchart Tob to Bottom</option>
+                      <option value="mmd/sequenceDiagram.mmd"> Sequence Diagram</option>
+                      <option value="mmd/gantt.mmd"> Gant Diagram</option>
+                      <option value="mmd/if-branch-pattern.mmd"> If Branch Pattern</option>
+                      <option value="mmd/integrate.mmd"> Integrate Decision Tree</option>
+                      <option value="mmd/BusinessRuleOrderSequence.mmd"> Business Rule Order Sequence</option>
+                      <option value="mmd/intake.mmd"> Intake</option>
+                      <option value="mmd/intakev2.mmd"> Intake V2</option>
+                      <option value="mmd/event-intake.mmd"> Event Intake</option>
+                      <option value="mmd/import-pattern.mmd"> Import Pattern</option>
+                      <option value="mmd/certificate-integration.mmd"> Certificate Integration</option>
+                      <option value="mmd/transform-map-order.mmd"> Transform Map Order</option>
+                      <option value="mmd/0-approval-1-task-serial.mmd"> WF 1 Task</option>
+                      <option value="mmd/0-approval-2-task-serial.mmd"> WF 2 Task (serial)</option>
+                      <option value="mmd/0-approval-2-task-parallel.mmd"> WF 2 Task (parallel)</option>
+                      <option value="mmd/1-approval-1-task-serial.mmd"> WF 1 Approval 1 Task</option>
+                      <option value="mmd/1-approval-2-task-serial.mmd"> WF 1 Approval 2 Task (serial)</option>
+                      <option value="mmd/1-approval-2-task-parallel.mmd"> WF 1 Approval 2 Task (parallel)</option>
+                      <option value="mmd/2-approval-1-task-serial.mmd"> WF 2 Approval 1 Task</option>
+                      <option value="mmd/2-approval-2-task-serial.mmd"> WF 2 Approval 2 Task (serial)</option>
+                      <option value="mmd/2-approval-2-task-parallel.mmd"> WF 2 Approval 2 Task (parallel)</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <label for="live">Live Updating</label>
+                    <select id="live" class="form-control">
+                      <option SELECTED value="no">No</option>
+                      <option value="yes">Yes</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="update">&nbsp;</label>
+                      <div class="col-md-4">
+                        <a href="#" class="btn btn-info" id="update">Update</a>
+                      </div>
                     </div>
                   </div>
+                  <label for="mermaid-syntax">Mermaid Syntax</label>
+                  <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax"
+                    placeholder="Example input">
+                </textarea>
+                  
                 </div>
-                <label for="mermaid-syntax">Mermaid Syntax</label>
-                <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax"
-                  placeholder="Example input"></textarea>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-6" id="right">
+            </form>
+          </div>
+      </div>
+      
+      <div class="col-6" id="right">
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
@@ -118,10 +123,11 @@
             </div>
           </div>
         </div>
-      </div>
     </main>
   </div>
-  <footer></footer>
+</body>
+
+</html>
 </body>
 
 </html>
