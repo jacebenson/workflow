@@ -18,14 +18,6 @@ $(document).ready(function () {
     }
   };
   GLOBAL.render = function () {
-        // submit issue;
-        $('#open-issue').click(function(){
-          var url = "https://github.com/jacebenson/workflow/issues/new?title=New Graph&body=";
-          url += "This graph is great, add it to your defaults!%0A";
-          url += "```%0A" + $('#mermaid-syntax').val().replace(/\n/gi,'%0A') + "%0A```";
-          window.open(url);
-          //console.log(url);
-        });
     $('#chart').html('');
     GLOBAL.mermaidSyntax = $('#mermaid-syntax').val();
     // GLOBAL.mermaidSyntax =
