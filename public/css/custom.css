@@ -7,8 +7,16 @@
 
 /*.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}*/
 
-
 .centering {
- float:none;
- margin:0 auto;
+    float: none;
+    margin: 0 auto;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+#ribbon {
+    position: absolute;
+    left: 0;
 }
