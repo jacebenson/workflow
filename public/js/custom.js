@@ -1,6 +1,18 @@
 /* global $, mermaid */
 $(document).ready(function() {
     var GLOBAL = window;
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", "https://api.github.com/repos/jacebenson/workflow/contents/public/mmd", true, null, null)
+    xhr.send()
+    xhr.onload = function() {
+        //       console.log(this.response);
+        var responseObj = JSON.parse(this.response);
+        console.log(responseObj);
+        responseObj.forEach(function(graph) {
+            var element = new Option(graph.name, graph.path.split('public/')[1]);
+            $("#type").append(element);
+        });
+    }
     GLOBAL.cb = function(svgGraph) {
         $('#chart').append('<div class="mermaid"></div>');
         $('.mermaid').html(svgGraph);
