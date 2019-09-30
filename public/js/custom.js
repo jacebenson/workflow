@@ -31,8 +31,7 @@ $(document).ready(function() {
     };
     GLOBAL.render = function() {
         $('#chart').html('');
-        GLOBAL.mermaidSyntax = $('#mermaid-syntax').val();
-        // GLOBAL.mermaidSyntax =
+        GLOBAL.mermaidSyntax = $('#mermaid-syntax').val().replace(/(\s)+\n/gm, `\n`);
         var matches = GLOBAL.mermaidSyntax.match(/\n/g);
         var breaks = matches ? matches.length : 2;
         $('#mermaid-syntax').attr('rows', breaks + 2);
@@ -95,7 +94,7 @@ $(document).ready(function() {
     };
     if (GLOBAL.getUrlParameter('flow')) {
         $('#type').val('mmd/' + GLOBAL.getUrlParameter('flow') + '.mmd');
-        $.get($('#type').val(), function(data) {
+        $.get('mmd/' + GLOBAL.getUrlParameter('flow') + '.mmd', function(data) {
             $('#mermaid-syntax').val(data + '\n');
             GLOBAL.render();
         });
