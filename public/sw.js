@@ -17,7 +17,7 @@ this.addEventListener('install', event => {
         './js/custom.js',
         './js/mermaid.js',
         './manifest.json',
-        
+        'https://api.github.com/repos/jacebenson/workflow/contents/public/mmd',
         offlineUrl
       ]);
     })
