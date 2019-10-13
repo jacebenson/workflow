@@ -72,6 +72,7 @@ $(document).ready(function() {
         $('#left').toggleClass('d-none');
         $('#right').toggleClass('col-6');
         $('#right').toggleClass('col-12');
+        GLOBAL.render();
     });
     GLOBAL.getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1));
