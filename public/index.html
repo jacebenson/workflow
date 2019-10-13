@@ -16,10 +16,13 @@
     <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
     <!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>-->
     <!--<script type="text/javascript" src="./js/bootstrap.min.js"></script>-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
     <!--<script type="text/javascript" src="./js/mermaid.js"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.4/mermaid.min.js" integrity="sha256-rgBvGmEH0zKnDgMorpb6HpHJvrGY6UTfzhLpu38w2Kw=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.4/mermaid.min.js" integrity="sha256-rgBvGmEH0zKnDgMorpb6HpHJvrGY6UTfzhLpu38w2Kw="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/custom.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
     <!-- Insert this line after script imports -->
@@ -28,8 +31,8 @@
             startOnLoad: false
         });
         // submit issue;
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('open-issue').addEventListener('click', function() {
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('open-issue').addEventListener('click', function () {
                 var mermaidSyntax = document.getElementById('mermaid-syntax').value;
                 var url = "https://github.com/jacebenson/workflow/issues/new?title=New Graph&body=";
                 url += "This graph is great, add it to your defaults!%0A";
@@ -44,7 +47,8 @@
     <link rel="stylesheet" href="./css/mermaid.css">
     <!-- 4.3.1 Bootstrap -->
     <!--<link href="./css/bootstrap.min.css" rel="stylesheet" />-->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/custom.css">
     <link rel="canonical" href="https://workflow.jace.pro" />
@@ -61,22 +65,37 @@
     <header>
         <nav>
             <div class="container-fluid">
+                
                 <div class="row">
-                    <div class="col-md-2">
-                        <a id="ribbon" href="https://github.com/jacebenson/workflow"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_red_aa0000.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1" style="position: absolute;left: 0;"></a>
+                    <div class="col-md-4 offset-md-1">
+                        <h1>Workflows</h1>
                     </div>
-                    <div class="col-md-10">
-                        <div class="container-fluid top-buffer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h1>Workflows</h1>
-                                </div>
-                                <div class="col-4">
-                                    <button id="resize" type="button" class="btn btn-primary btn">
-                    Resize
-                  </button>
-                                    <a href="#" class="btn btn-info" id="open-issue">Open Github issue with syntax</a>
-                                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 offset-md-1">
+                        <label for="type">Graph Type</label>
+                        <select id="type" class="form-control">
+                            <option SELECTED value=""> Choose one</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="live">Live Updating</label>
+                        <select id="live" class="form-control">
+                            <option SELECTED value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-12 control-label" for="update">&nbsp;</label>
+                            <div class="col-md-4">
+                                <a href="#" class="btn btn-info" id="update">Update</a>
+                            </div>
+                            <div class="col-md-4">
+                                <button id="resize" type="button" class="btn btn-primary btn">Resize</button>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="#" class="btn btn-info" id="open-issue">Send to Github</a>
                             </div>
                         </div>
                     </div>
@@ -91,51 +110,27 @@
                     <form class="form-horizontal">
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-6">
-                                    <label for="type">Graph Type</label>
-                                    <select id="type" class="form-control">
-                      <option SELECTED value=""> Choose one</option>
-                    </select>
-                                </div>
-                                <div class="col-3">
-                                    <label for="live">Live Updating</label>
-                                    <select id="live" class="form-control">
-                      <option SELECTED value="no">No</option>
-                      <option value="yes">Yes</option>
-                    </select>
-                                </div>
-                                <div class="col-3">
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="update">&nbsp;</label>
-                                        <div class="col-md-4">
-                                            <a href="#" class="btn btn-info" id="update">Update</a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <label for="mermaid-syntax">Mermaid Syntax</label>
-                                <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax" placeholder="Example input">
-                </textarea>
-
+                                <textarea style="font-family:monospace;" rows="10" class="form-control" id="mermaid-syntax"
+                                    placeholder="Example input"></textarea>
                             </div>
                     </form>
-                    </div>
                 </div>
+            </div>
 
-                <div class="col-6" id="right">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div id="chart"></div>
-                                <div id="info" style="font-family:monospace;"></div>
-                            </div>
+            <div class="col-6" id="right">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="chart" style="min-height:250px"></div>
+                            <div id="info" style="min-height:250px;font-family:monospace;"></div>
                         </div>
                     </div>
                 </div>
+            </div>
         </main>
-        </div>
+    </div>
 </body>
-
 </html>
 </body>
-
 </html>
