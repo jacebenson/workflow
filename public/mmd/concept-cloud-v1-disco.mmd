@@ -14,5 +14,7 @@ graph TD
   SN1-->U0[Update CI]
   SNS0--Delete-->SN2[ServiceNow]
   SN2-->D0[Terminate CI]
+subgraph CUSTOM
   SN4[Daily Servicenow looks<br/> for records with sys_updated<br/>older than 14 days]
+end
   SN4--Change state to retired-->D0
