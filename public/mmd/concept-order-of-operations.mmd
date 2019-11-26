@@ -44,9 +44,9 @@ sequenceDiagram
     ssss-->eeee: Workflow engine (for deferred workflows)
     ssss-->eeee: Trigger engine (for all Flow Designer flows)
     eeee->>ssss: After Business Rules >=1000
-    ssss->>ssss: Async Business Rules
-    Note right of ssss: This creates sys_triggers that process later
     ssss->>dbdb: Query Business Rules
+    ssss-->dbdb: Async Business Rules
+    Note right of eeee: This creates sys_triggers that process later
     dbdb->>ssss: Display Business Rules
     ssss->>uxux: Return UI
 
