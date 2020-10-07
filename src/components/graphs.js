@@ -1,4 +1,133 @@
-export const flows = [{
+export const flows = [
+  {
+    title: "Standard Zero Approval One Task Serial",
+    code: `graph LR
+S0(Start)
+T1(Task 1)
+E0(End)
+
+S0-->T1
+T1-->E0`
+  }, {
+    title: "Standard Zero Approval Two Task Parallel",
+    code: `graph LR
+S0(Start)
+T1(Task 1)
+T2(Task 2)
+E0(End)
+
+S0-->T1
+S0-->T2
+T1-->E0
+T2-->E0`
+  }, {
+    title: "Standard Zero Approval Two Task Serial",
+    code: `graph LR
+S0(Start)
+T1(Task 1)
+T2(Task 2)
+E0(End)
+
+S0-->T1
+T1-->T2
+T2-->E0`
+  }, {
+    title: "Standard One Approval One Task Serial",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+T1(Task 1)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->T1
+T1-->E0`
+  }, {
+    title: "Standard One Approval Two Task Parallel",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+T1(Task 1)
+T2(Task 2)
+J0(Join)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->T1
+A1--Approved-->T2
+T1-->J0
+T2-->J0
+J0-->E0`
+  }, {
+    title: "Standard One Approval Two Task Parallel",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+T1(Task 1)
+T2(Task 2)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->T1
+T1-->T2
+T2-->E0`
+  }, {
+    title: "Standard Two Approval OneTaskSerial",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+A2(Approval 2)
+T1(Task 1)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->A2
+A2--Rejected-->E0
+A2--Approved-->T1
+T1-->E0`
+  }, {
+    title: "Standard Two Approval Two Task Parallel",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+A2(Approval 2)
+T1(Task 1)
+T2(Task 2)
+J0(Join)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->A2
+A2--Approved-->T1
+A2--Approved-->T2
+A2--Rejected-->E0
+T1-->J0
+T2-->J0
+J0-->E0`
+  }, {
+    title: "Standard Two Approval Two Task Parallel",
+    code: `graph LR
+S0(Start)
+A1(Approval 1)
+A2(Approval 2)
+T1(Task 1)
+T2(Task 2)
+E0(End)
+
+S0-->A1
+A1--Rejected-->E0
+A1--Approved-->A2
+A2--Rejected-->E0
+A2--Approved-->T1
+T1-->T2
+T2-->E0`
+  },
+  {
     title: "Flow Chart",
     code: `graph TD
 A[Christmas] -->|Get money| B(Go shopping)
@@ -442,132 +571,5 @@ subgraph Many records at a time OS Pushes
   TM4--Creates Records-->EN4
 end
 `
-  }, {
-    title: "Standard Zero Approval One Task Serial",
-    code: `graph LR
-S0(Start)
-T1(Task 1)
-E0(End)
-
-S0-->T1
-T1-->E0`
-  }, {
-    title: "Standard Zero Approval Two Task Parallel",
-    code: `graph LR
-S0(Start)
-T1(Task 1)
-T2(Task 2)
-E0(End)
-
-S0-->T1
-S0-->T2
-T1-->E0
-T2-->E0`
-  }, {
-    title: "Standard Zero Approval Two Task Serial",
-    code: `graph LR
-S0(Start)
-T1(Task 1)
-T2(Task 2)
-E0(End)
-
-S0-->T1
-T1-->T2
-T2-->E0`
-  }, {
-    title: "Standard One Approval One Task Serial",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-T1(Task 1)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->T1
-T1-->E0`
-  }, {
-    title: "Standard One Approval Two Task Parallel",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-T1(Task 1)
-T2(Task 2)
-J0(Join)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->T1
-A1--Approved-->T2
-T1-->J0
-T2-->J0
-J0-->E0`
-  }, {
-    title: "Standard One Approval Two Task Parallel",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-T1(Task 1)
-T2(Task 2)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->T1
-T1-->T2
-T2-->E0`
-  }, {
-    title: "Standard Two Approval OneTaskSerial",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-A2(Approval 2)
-T1(Task 1)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->A2
-A2--Rejected-->E0
-A2--Approved-->T1
-T1-->E0`
-  }, {
-    title: "Standard Two Approval Two Task Parallel",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-A2(Approval 2)
-T1(Task 1)
-T2(Task 2)
-J0(Join)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->A2
-A2--Approved-->T1
-A2--Approved-->T2
-A2--Rejected-->E0
-T1-->J0
-T2-->J0
-J0-->E0`
-  }, {
-    title: "Standard Two Approval Two Task Parallel",
-    code: `graph LR
-S0(Start)
-A1(Approval 1)
-A2(Approval 2)
-T1(Task 1)
-T2(Task 2)
-E0(End)
-
-S0-->A1
-A1--Rejected-->E0
-A1--Approved-->A2
-A2--Rejected-->E0
-A2--Approved-->T1
-T1-->T2
-T2-->E0`
   }
 ]

@@ -36,5 +36,5 @@ export const fromUrl = data => {
 };
 export const updateCodeStore = newState => {
   codeStore.set(newState);
-  replace('/edit/' + Base64.encodeURI(JSON.stringify(newState)))
+  replace('/edit/')// + Base64.encodeURI(JSON.stringify(newState)))
 };
