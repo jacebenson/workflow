@@ -8,7 +8,7 @@ import mermaid from '@mermaid';
 
 const detectType = text => {
   text = text.replace(/^\s*%%.*\n/g, '\n');
-  console.debug('Detecting diagram type based on the text ' + text);
+  //console.debug('Detecting diagram type based on the text ' + text);
   if (text.match(/^\s*sequenceDiagram/)) {
     return 'sequence';
   }
