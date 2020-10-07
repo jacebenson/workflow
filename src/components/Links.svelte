@@ -121,9 +121,9 @@ let userimageheight = 1080;
 </style>
 
 <div id="links">
-    <button class="button-style">
+    <!--<button class="button-style">
         <a class="link-style" href={url} use:link>Link to view</a>
-    </button>
+    </button>-->
     <!--<button class="button-style">
         <a class="link-style" href={url} download="" on:click={onDownloadSVG}>
             Download SVG
