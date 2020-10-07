@@ -49,8 +49,8 @@ const saveStatistcs = graphType => {
 	// Only save statistcs after a 5 sec delay
 	timeout = setTimeout(
 		function() {
-			console.log('ga:', 'send', 'event', 'render', graphType, graphType);
-			ga('send', 'event', graphType, 'render', 'render');
+			//console.log('ga:', 'send', 'event', 'render', graphType, graphType);
+			//ga('send', 'event', graphType, 'render', 'render');
 		},
 		5000);
 };
