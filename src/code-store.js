@@ -3,6 +3,7 @@ import { writable } from 'svelte/store';
 import mermaid from '@mermaid';
 import { Base64 } from 'js-base64'
 import {push, pop, replace} from 'svelte-spa-router'
+import {flows} from './components/graphs'
 
 export const codeStore = writable(undefined);
 export const fromUrl = data => {
@@ -21,13 +22,7 @@ export const fromUrl = data => {
 		code = state.code;
   } catch (e) {
     // console.error('Init error', e);
-		code = `graph TD
-  A[Christmas] -->|Get money| B(Go shopping)
-  B --> C{Let me think}
-  C -->|One| D[Laptop]
-  C -->|Two| E[iPhone]
-  C -->|Three| F[fa:fa-car Car]
-		`;
+		code = ``;
 		state = { code, mermaid: { theme: isDarkMode?'dark':'default' } };
   }
 
