@@ -1,90 +1,55 @@
-# Workflow
+[![Join our Slack!](https://img.shields.io/static/v1?message=join%20chat&color=9cf&logo=slack&label=slack)](https://join.slack.com/t/mermaid-talk/shared_invite/enQtNzc4NDIyNzk4OTAyLWVhYjQxOTI2OTg4YmE1ZmJkY2Y4MTU3ODliYmIwOTY3NDJlYjA0YjIyZTdkMDMyZTUwOGI0NjEzYmEwODcwOTE)
 
-> Workflow Diagrammer
+# Contributors are welcome
 
-## Installing / Getting started
+If you want to speed up the progress for mermaid-cli, join the slack channel and contact knsv.
 
-This project doesn't need to be installed to try it out.  Just go to https://workflow.jace.pro and try.
+# mermaid-live-editor
 
-It follows the MermaidJS syntax.
+Edit, preview and share mermaid charts/diagrams.
 
-### Syntax for Flows
 
-For more extensive documentation see [mermaidjs docs](https://mermaidjs.github.io/#/flowchart).
+## Features
 
-#### Graph orientation
+- Edit and preview flowcharts, sequence diagrams, gantt diagrams in real time.
+- Save the result as a svg
+- Get a link to a viewer of the diagram so that you can share it with others.
+- Get a link to edit the diagram so that someone else can tweak it and send a new link back
 
- - `graph TD` top to bottom
- - `graph TB` top to bottom (same as TD)
- - `graph TD` right to left
- - `graph TD` left to right
- - `graph TD` bottom to top
 
-#### Nodes
+## Setup
 
-Nodes can be identified or not.  To have unidentified nodes, just add a new line with it's name.  You cannot do names with special characters or spaces in them.
+Setup is simple.
 
 ```
-graph TD
-  id
+yarn install
+```
+or in develop branch to use the beta version of mermaid use
+```
+yarn install --update-checksums
 ```
 
-If you want to identify them, you have a lot more control.
+This together with a .npmrc file:
+```
+registry=https://registry.npmjs.com/
+@mermaid-js:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken="XXXXXXXXX"
 
 ```
-graph TD
-  id1(Box with rounded edges)
-  id2((Circle))
-  id3>Asymetric shape]
-  id4{Rhombus}
-  id5["Box with () special charactesr"]
-```
 
-#### Lines
+
+## Development
 
 ```
-graph TD
-  id01 --> id02 
-  id03 --- id04
-  id05 -->|Text on the line ---id06
-  id07 --Test on the line --> id08
-  id10 -.-> id11
-  id12 -. text .-> id13
-  id14 ==> id14
+yarn dev
+open http://localhost:8080
 ```
-This is a progressive web app, you can install it locally with chrome with the (+) in the address bar.
 
-If you just want to try it out, follow these steps;
-
-1. Download the XML from the `/dist/` folder
-2. Install the update set
-   ** THIS ONLY adds the UI MACRO, it does not change your forms **
+This app is created with Svelte + svelte-spa-router.
 
 
+## Release
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to 
-discuss what you would like to change.
-
-However there are a lot of issues for everything I could find in servicenow.
-If you know that application feel free to fill out the issue and comment on it.
-
-### Setting up the repo
-
-1.  [Fork this project](https://github.com/jacebenson/workflow/fork)
-2.  Clone it down to your machine and in it's directory run;
-    ```sh
-    yarn start
-    ```
-3.  You should have it up and running.
-
-### Actually Contributing
-
-1.  [Fork it](https://github.com/jacebenson/osaf/fork)
-1.  Make your changes to the files in `/public`
-1.  Create a new Pull Request
-
-## Licensing
-
-"The code in this project is licensed under MIT license."
+```
+yarn release
+```
