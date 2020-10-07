@@ -22,7 +22,13 @@ export const fromUrl = data => {
 		code = state.code;
   } catch (e) {
     // console.error('Init error', e);
-		code = ``;
+		code = `graph LR
+S0(Start)
+T1(Task 1)
+E0(End)
+
+S0-->T1
+T1-->E0`;
 		state = { code, mermaid: { theme: isDarkMode?'dark':'default' } };
   }
 
