@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { flows } from '../components/graphs';
   import { codeStore, updateCode, updateCodeStore } from '../code-store.js';
   import Editor from '../components/Editor.svelte';
   import Config from '../components/Config.svelte';
@@ -124,9 +125,8 @@
           PRODUCT ||--o{ ORDER-ITEM : "ordered in"
             `,
   };
-
   function loadSampleDiagram(diagramType) {
-    toUpdateCodeStore(samples[diagramType]);
+    toUpdateCodeStore(flows[diagramType]);
   }
 
   function toUpdateCodeStore(code) {
@@ -230,13 +230,21 @@
   <div id="sampleLoader">
     <div class="button-container">
       <span id="sampleLoaderTitle"><strong>Diagram presets:</strong></span>
-      {#each Object.keys(samples) as diagramType, i}
+
+      {#each Object.keys(flows) as diagramTypeFlow, i}
+        <button
+          class="button-style"
+          on:click={(e) => loadSampleDiagram(diagramTypeFlow)}>
+          {diagramTypeFlow}
+        </button>
+      {/each}
+      <!--{#each Object.keys(samples) as diagramType, i}
         <button
           class="button-style"
           on:click={(e) => loadSampleDiagram(diagramType)}>
           {diagramType}
         </button>
-      {/each}
+      {/each}-->
     </div>
   </div>
   <div id="editor-root">
